@@ -1,7 +1,7 @@
 <template>
    <main>
       <div class="container">
-        <h1 :class="{ 'line' : animating }">{{ msg }}</h1>
+        <h1 :class="{ 'line' : animating }">id: {{ id }}, {{ msg }}</h1>
       </div>
    </main>
 </template>
@@ -10,10 +10,11 @@
 export default {
   name: 'Profile',
   props: {
-    msg: String
+    id: String
   },
   data() {
      return {
+        msg: "Almar Butt",
         animating: false
      }
   },

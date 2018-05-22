@@ -1,29 +1,30 @@
 <template>
   <div id="app">
-    <Profile msg="Welcome to the Vue-Demo!"/>
+     <router-view/>
   </div>
 </template>
 
 <script>
-import { Profile } from './components'
 
 export default {
-  name: 'app',
-  components: {
-    Profile
-  }
+  name: 'app'
 }
 </script>
 
 <style>
 
+/* root style */
 * {
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
    color: #2c3e50;
-   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+   font-family: 'Helvetica Neue', Arial, sans-serif;
    margin: 0;
    padding: 0;
+}
+
+h1 {
+   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }
 
 main {
