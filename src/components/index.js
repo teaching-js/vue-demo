@@ -1,3 +1,3 @@
-//import Profile from './Profile.vue'
+import Blog from './Blog.vue'
 
-//export { Profile }
+export { Blog }

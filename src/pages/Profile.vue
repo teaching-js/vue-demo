@@ -1,7 +1,7 @@
 <template>
    <main>
       <div class="container">
-        <h1 :class="{ 'line' : animating }">id: {{ id }}, {{ msg }}</h1>
+        <h2 :class="{ 'line' : animating }">id: {{ id }}, {{ msg }}</h2>
       </div>
    </main>
 </template>
@@ -26,6 +26,10 @@ export default {
     }
   },
 
+  beforeMount() {
+
+  },
+
   mounted() {
      this.animateLine()
   }
@@ -38,7 +42,7 @@ export default {
    margin: auto;
 }
 
-h1 {
+h2 {
    padding: 10px;
    border: 10px solid transparent;
 }
