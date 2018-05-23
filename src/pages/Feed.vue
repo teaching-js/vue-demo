@@ -44,7 +44,6 @@ export default {
          // jesus
          this.articles = this.articles.map(item => {
             item = Object.assign({},item,{ author: this.users[item.userId].name })
-            console.log(item)
             return item
          }).sort((a, b) => a.title.length - b.title.length)
       })
