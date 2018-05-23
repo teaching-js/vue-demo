@@ -24,25 +24,29 @@ export default {
       Blog
    },
 
-   mounted() {
-      this.articles.forEach(item => {
-         item.author = this.users[item.userId].name
-      })
-   },
-
    beforeMount() {
-      fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(res => res.json())
-      .then(data => {
-         this.articles = data
-      })
+      Promise.all([
+         fetch('https://jsonplaceholder.typicode.com/posts')
+         .then(res => res.json())
+         .then(data => {
+            this.articles = data
+         }),
 
-      fetch('https://jsonplaceholder.typicode.com/users')
-      .then(res => res.json())
-      .then(data => {
-         data.forEach(item => {
-            this.users[item.id] = item
+         fetch('https://jsonplaceholder.typicode.com/users')
+         .then(res => res.json())
+         .then(data => {
+            data.forEach(item => {
+               this.users[item.id] = item
+            })
          })
+      ])
+      .then(() => {
+         // jesus
+         this.articles = this.articles.map(item => {
+            item = Object.assign({},item,{ author: this.users[item.userId].name })
+            console.log(item)
+            return item
+         }).sort((a, b) => a.title.length - b.title.length)
       })
    }
 }
