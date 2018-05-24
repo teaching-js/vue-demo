@@ -1,3 +1,3 @@
-import Profile from './Profile.vue'
+import Feed from './Feed.vue'
 
-export { Profile }
+export { Feed }
