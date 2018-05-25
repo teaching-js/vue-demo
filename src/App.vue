@@ -16,9 +16,13 @@
 </template>
 
 <script>
+import { Feed } from '@/components'
 
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    Feed
+  }
 }
 </script>
 

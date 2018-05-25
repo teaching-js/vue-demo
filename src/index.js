@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+//import Router from 'vue-router'
 import App from './App.vue'
 import { Profile, Feed, Friends,About } from './pages'
 
@@ -34,8 +34,7 @@ const router = new Router({
       }
    ]
 })
-
 new Vue({
-  router,
+  //router,
   render: h => h(App)
 }).$mount('#app')
