@@ -16,13 +16,8 @@
 </template>
 
 <script>
-import { Feed } from '@/components'
-
 export default {
-  name: 'app',
-  components: {
-    Feed
-  }
+  name: 'app'
 }
 </script>
 
