@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import App from './App.vue'
-import { Profile, Feed, Friends } from './pages'
+import { Profile, Feed, Friends,About } from './pages'
 
 Vue.use(Router)
 
@@ -26,6 +26,11 @@ const router = new Router({
          path: '/',
          name: 'Feed',
          component: Feed
+      },
+      {
+         path: '/about',
+         name: 'About',
+         component: About
       }
    ]
 })

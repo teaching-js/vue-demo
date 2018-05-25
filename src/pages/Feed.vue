@@ -1,6 +1,8 @@
 <template lang="html">
    <main>
       <h1 class="banner">Feed</h1>
+      <br>
+      <h3 class="sub-banner"> Spill your thoughts, we won't tell ;) </h3>
       <Blog v-for="article in articles"
          :article="article"
          :key="article.id"
@@ -41,9 +43,9 @@ export default {
          })
       ])
       .then(() => {
-         // jesus
+         // jesus (christ)
          this.articles = this.articles.map(item => {
-            item = Object.assign({},item,{ author: this.users[item.userId].name })
+            item = Object.assign({},item,{ author: this.users[item.userId] })
             return item
          }).sort((a, b) => a.title.length - b.title.length)
       })
@@ -54,5 +56,9 @@ export default {
 <style lang="css">
 .banner {
    font-size: 4em;
+}
+.sub-banner {
+  color: #777777;
+  margin-bottom: 2em;
 }
 </style>
