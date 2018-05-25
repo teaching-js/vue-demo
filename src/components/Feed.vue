@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'Profile',
+  name: 'Feed',
   props: {
     msg: String
   },

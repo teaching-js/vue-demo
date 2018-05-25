@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <Profile msg="Welcome to the Vue-Demo!"/>
+    <Feed msg="Welcome to the Vue-Demo!"/>
   </div>
 </template>
 
 <script>
-import { Profile } from './components'
+import { Feed } from '@/components'
 
 export default {
   name: 'app',
   components: {
-    Profile
+    Feed
   }
 }
 </script>
