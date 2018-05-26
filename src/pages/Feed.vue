@@ -1,9 +1,9 @@
 <template lang="html">
    <section class="container">
-      <h1 class="banner">{{ $options.name }}</h1>
+      <h1 class="banner">Latest</h1>
       <br>
-      <h3 class="sub-banner"> Spill your thoughts, we won't tell ;) </h3>
-      <Blog v-for="article in articles"
+      <h3 class="sub-banner">Spill your thoughts, we won't tell ;)</h3>
+      <Blog v-if="loaded" v-for="article in articles"
          :article="article"
          :key="article.id"
       />
@@ -19,7 +19,8 @@ export default {
    data() {
       return {
          articles: [],
-         users: {}
+         users: {},
+         loaded: false
       }
    },
 
@@ -27,7 +28,7 @@ export default {
       Blog
    },
 
-   beforeMount() {
+   created() {
       Promise.all([
          fetch('https://jsonplaceholder.typicode.com/posts')
          .then(res => res.json())
@@ -49,6 +50,9 @@ export default {
             item = Object.assign({},item,{ author: this.users[item.userId] })
             return item
          }).sort((a, b) => a.title.length - b.title.length)
+      })
+      .then(() => {
+         this.loaded = true
       })
    }
 }

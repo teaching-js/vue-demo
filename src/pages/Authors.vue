@@ -3,7 +3,7 @@
      <h1 class="banner">{{ $options.name }}</h1>
      <br>
      <h3 class="sub-banner">{{ subheader }}</h3>
-     <User v-for="user in users"
+     <User v-if="loaded" v-for="user in users"
         :user="user"
         :key="user.id"
      />
@@ -22,6 +22,7 @@ export default {
                   " and internet snark manufacturers. We pride ourselves on "+
                   "sick prose and long pointless comment threads.",
         users: [],
+        loaded: false
      }
   },
   components: {
@@ -33,6 +34,7 @@ export default {
       fetch('https://jsonplaceholder.typicode.com/users')
         .then(res => res.json())
         .then(data => {this.users = data})
+        .then(() => { this.loaded = true})
   }
 
 }
