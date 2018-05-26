@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-      <div class="navbar">
+      <nav class="navbar">
           <div class="nav-elem brand" >
-            <router-link tag="a" :to="{ name: 'Feed'}">Feed</router-link>
+            <router-link tag="a" :to="{ name: 'Feed'}">Feedium</router-link>
           </div>
           <div class="nav-elem" >
-            <router-link tag="a" :to="{ name: 'Friends'}">Friends</router-link>
+            <router-link tag="a" :to="{ name: 'Authors'}">Authors</router-link>
           </div>
           <div class="nav-elem" >
             <router-link tag="a" :to="{ name: 'About'}">About</router-link>
           </div>
-      </div>
-     <router-view/>
+      </nav>
+     <main>
+        <router-view/>
+     </main>
   </div>
 </template>
 
@@ -28,7 +30,8 @@ export default {
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
    color: #121212;
-   font-family: 'Helvetica Neue', Arial, sans-serif;
+   font-family: 'Helvetica Neue', 'Open Sans', Arial, sans-serif;
+   font-size: normal;
    margin: 0;
    padding: 0;
 }
@@ -44,6 +47,7 @@ a {
   text-decoration: none;
   color: #325D88;
 }
+
 main {
    display: flex;
    padding: 50px;
@@ -53,22 +57,48 @@ main {
 }
 
 .navbar {
+    font-size: 1.25em;
     padding: 1em;
     width: 100%;
     display: flex;
-    align-items: center;
-    flex-direction: row;
+    align-items: flex-end;
     justify-content: flex-start;
     background-color: #325D88;
 }
+
 .nav-elem {
-  margin-right: 2em;
+  margin-right: 1.5em;
+  line-height: 30px;
 }
+
 .nav-elem a {
   color: #EBEBEB;
 }
+
 .brand a {
-  font-size: 1.5em;
+  font-size: 1.1em;
+  font-weight: 500;
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.banner {
+   font-size: 4em;
+}
+
+.sub-banner {
+  color: #777777;
+  margin-bottom: 2em;
+}
+
+.banner, .sub-banner {
+   margin: 0 20px;
+}
+
+.container {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   max-width: 800px;
+   width: 600px;
 }
 </style>

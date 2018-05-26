@@ -23,7 +23,7 @@ export default {
 <style lang="css" scoped>
 
 .user {
-   margin: 20px;
+   margin: 10px 20px;
    width: 450px;
    min-width: 300px;
 }

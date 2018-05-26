@@ -1,19 +1,20 @@
 <template lang="html">
-   <main>
-      <h1 class="banner">Feed</h1>
+   <section class="container">
+      <h1 class="banner">{{ $options.name }}</h1>
       <br>
       <h3 class="sub-banner"> Spill your thoughts, we won't tell ;) </h3>
       <Blog v-for="article in articles"
          :article="article"
          :key="article.id"
       />
-   </main>
+   </section>
 </template>
 
 <script>
 import { Blog } from '@/components'
 
 export default {
+   name: 'Feed',
 
    data() {
       return {
@@ -52,13 +53,3 @@ export default {
    }
 }
 </script>
-
-<style lang="css">
-.banner {
-   font-size: 4em;
-}
-.sub-banner {
-  color: #777777;
-  margin-bottom: 2em;
-}
-</style>

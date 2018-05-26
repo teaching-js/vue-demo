@@ -1,23 +1,26 @@
 <template lang="html">
-   <main>
-     <h1 class="banner">Friends</h1>
+  <section class="container">
+     <h1 class="banner">{{ $options.name }}</h1>
      <br>
-     <h3 class="sub-banner"> Find some new buddies! </h3>
+     <h3 class="sub-banner">{{ subheader }}</h3>
      <User v-for="user in users"
         :user="user"
         :key="user.id"
      />
-   </main>
+  </section>
 </template>
 
 <script>
 import { User } from '@/components'
 
 export default {
-  name: 'Friends',
+  name: 'Authors',
   props: {},
   data() {
      return {
+        subheader: "The Feedium stable includes some of the world's finest writers" +
+                  " and internet snark manufacturers. We pride ourselves on "+
+                  "sick prose and long pointless comment threads.",
         users: [],
      }
   },
@@ -25,16 +28,12 @@ export default {
     User
   },
   methods: {},
+
   beforeMount() {
-    Promise.all([
       fetch('https://jsonplaceholder.typicode.com/users')
         .then(res => res.json())
         .then(data => {this.users = data})
-    ])
-  },
-  mounted() {}
+  }
+
 }
 </script>
-
-<style lang="css">
-</style>

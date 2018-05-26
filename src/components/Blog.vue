@@ -3,7 +3,9 @@
       <article>
          <div class="header-container">
             <h2>{{ article.title  }}</h2>
-            <h5><router-link tag="a" :to="{ name: 'Profile', params: {id: article.author.id}}">{{ article.author.name }}</router-link> | {{ article.date || "Today" }}</h5>
+            <h5><router-link tag="a" :to="{
+               name: 'Profile',
+               params: {id: article.author.id }}">{{ article.author.name }}</router-link> | {{ article.date || "Today" }}</h5>
          </div>
          <div class="content-container">
             <p>{{ article.body }}</p>
@@ -15,7 +17,11 @@
 <script>
 export default {
    props: {
-      article: Object
+      article: {
+         title: String,
+         body: String,
+         author: Object
+      }
    }
 }
 </script>
@@ -23,7 +29,7 @@ export default {
 <style lang="css" scoped>
 
 .blog {
-   margin: 20px;
+   margin: 10px 20px;
    width: 450px;
    min-width: 300px;
 }

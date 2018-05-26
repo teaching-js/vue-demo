@@ -1,17 +1,15 @@
 <template>
-   <main>
-      <div class="container">
-        <div class="title">
-          <h1>{{user.name}}</h1>
-          <hr>
-          <h3> {{user.email}} | {{user.address.city}}</h3>
-        </div>
-        <Blog v-for="article in articles"
-           :article="article"
-           :key="article.id"
-        />
-      </div>
-   </main>
+   <div class="container">
+     <div class="title">
+       <h1>{{user.name}}</h1>
+       <hr>
+       <h3> {{user.email}} | {{user.address.city}}</h3>
+     </div>
+     <Blog v-for="article in articles"
+        :article="article"
+        :key="article.id"
+     />
+   </div>
 </template>
 
 <script>
