@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import App from './App.vue'
-import { Profile, Feed, Friends } from './pages'
+import { Profile, Feed, About, Authors } from '@/pages'
 
 Vue.use(Router)
 
@@ -19,13 +19,18 @@ const router = new Router({
       },
       {
          path: '/users',
-         name: 'Friends',
-         component: Friends
+         name: 'Authors',
+         component: Authors
       },
       {
          path: '/',
          name: 'Feed',
          component: Feed
+      },
+      {
+         path: '/about',
+         name: 'About',
+         component: About
       }
    ]
 })

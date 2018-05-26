@@ -1,14 +1,12 @@
 <template lang="html">
-   <section class="blog">
+   <section class="user">
       <article>
          <div class="header-container">
-            <h2>{{ article.title  }}</h2>
-            <h5><router-link tag="a" :to="{
-               name: 'Profile',
-               params: {id: article.author.id }}">{{ article.author.name }}</router-link> | {{ article.date || "Today" }}</h5>
+            <h2><router-link tag="a" :to="{ name: 'Profile', params: {id: user.id}}">{{ user.name }}</router-link></h2>
+            <h5>{{user.email}} | {{user.address.city}}</h5>
          </div>
          <div class="content-container">
-            <p>{{ article.body }}</p>
+            <p>{{user.company.bs}}</p>
          </div>
       </article>
    </section>
@@ -17,18 +15,14 @@
 <script>
 export default {
    props: {
-      article: {
-         title: String,
-         body: String,
-         author: Object
-      }
+      user: Object
    }
 }
 </script>
 
 <style lang="css" scoped>
 
-.blog {
+.user {
    margin: 10px 20px;
    width: 450px;
    min-width: 300px;
