@@ -1,7 +1,7 @@
 <template>
    <main>
       <div class="container">
-        <h1 :class="{ 'line' : animating }">{{ msg }}</h1>
+        <h1 v-bind:class="{big: isBig }" v-on:click="toggle">{{ msg }}</h1>
       </div>
    </main>
 </template>
@@ -9,25 +9,17 @@
 <script>
 export default {
   name: 'Feed',
-  props: {
-    msg: String
-  },
   data() {
      return {
-        animating: false
+       posts: [
+         {title:"Google takes over world",content:"Big whoop."},
+         {title:"Bagels, Still great!",content:"Scientists say they are 'yummy'"}
+       ],
+       msg: "Welcome to the Vue-Demo",
+       isBig: false
      }
   },
-
-  methods: {
-    animateLine() {
-      this.animating = !this.animating
-      setTimeout(this.animateLine, 1000)
-    }
-  },
-
-  mounted() {
-     this.animateLine()
-  }
+  methods: {  }
 }
 </script>
 
@@ -44,5 +36,9 @@ h1 {
 
 .line {
    border: 10px dotted red;
+}
+
+.big {
+  font-size: 5em;
 }
 </style>
