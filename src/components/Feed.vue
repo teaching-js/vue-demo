@@ -1,7 +1,7 @@
 <template>
    <div class="container">
       <!-- Eventually change to vue shorthand -->
-     <h1 v-bind:class="{big: isBig }" v-on:click="isBig = !isBig">{{ msg }}</h1>
+     <h1>{{ msg }}</h1>
    </div>
 </template>
 
@@ -17,8 +17,7 @@ export default {
             id: 2, title:"Bagels, Still great!", body: "Scientists say they are 'yummy'"
          }
        ],
-       msg: "Welcome to the Vue-Demo!",
-       isBig: false
+       msg: "Welcome to the Vue-Demo!"
      }
   },
   methods: {  }
