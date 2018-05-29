@@ -1,9 +1,8 @@
 <template>
-   <main>
-      <div class="container">
-        <h1 v-bind:class="{big: isBig }" v-on:click="toggle">{{ msg }}</h1>
-      </div>
-   </main>
+   <div class="container">
+      <!-- Eventually change to vue shorthand -->
+     <h1 v-bind:class="{big: isBig }" v-on:click="isBig = !isBig">{{ msg }}</h1>
+   </div>
 </template>
 
 <script>
@@ -12,10 +11,13 @@ export default {
   data() {
      return {
        posts: [
-         {title:"Google takes over world",content:"Big whoop."},
-         {title:"Bagels, Still great!",content:"Scientists say they are 'yummy'"}
+         {
+            id: 1, title:"Google takes over world", body: "Big whoop."},
+         {
+            id: 2, title:"Bagels, Still great!", body: "Scientists say they are 'yummy'"
+         }
        ],
-       msg: "Welcome to the Vue-Demo",
+       msg: "Welcome to the Vue-Demo!",
        isBig: false
      }
   },
@@ -25,13 +27,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.container {
-   margin: auto;
-}
 
+/* sick transition too fam */
 h1 {
+   text-align: center;
    padding: 10px;
+   margin: 0 auto;
    border: 10px solid transparent;
+   user-select: none;
+   cursor: pointer;
+   transition: font-size 0.3s;
 }
 
 .line {
