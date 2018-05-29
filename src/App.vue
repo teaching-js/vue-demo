@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <main>
-      <Feed/>
+      <Feed name="Vue-Demo"/>
     </main>
   </div>
 </template>

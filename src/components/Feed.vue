@@ -1,23 +1,26 @@
 <template>
    <div class="container">
-      <!-- Eventually change to vue shorthand -->
-     <h1>{{ msg }}</h1>
+     <h1>{{ msg }} {{name}}!</h1>
    </div>
 </template>
 
 <script>
 export default {
   name: 'Feed',
+  props: {
+    name: String
+  },
   data() {
      return {
        posts: [
          {
-            id: 1, title:"Google takes over world", body: "Big whoop."},
+            id: 1, title:"Google takes over world", body: "Big whoop."
+         },
          {
             id: 2, title:"Bagels, Still great!", body: "Scientists say they are 'yummy'"
          }
        ],
-       msg: "Welcome to the Vue-Demo!"
+       msg: "Welcome to the"
      }
   },
   methods: {  }
