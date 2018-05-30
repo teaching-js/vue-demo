@@ -1,3 +1,4 @@
 import Feed from './Feed.vue'
+import Post from './Post.vue'
 
-export { Feed }
+export { Feed, Post }

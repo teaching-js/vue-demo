@@ -2,18 +2,16 @@
    <div class="container">
       <!-- Eventually change to vue shorthand -->
      <h1>{{ $options.name }}</h1>
-     <section>
-        <article v-for="post in posts" :key="post.id">
-           <h1>{{ post.id}} {{ post.title }}</h1>
-           <p>{{ post.body }}</p>
-        </article>
-     </section>
+     <Post v-for="post in posts" :post="post" :key="post.id"/>
    </div>
 </template>
 
 <script>
+import Post from './Post.vue'
+
 export default {
   name: 'Feed',
+  components: { Post },
   data() {
      return {
        posts: [
