@@ -1,27 +1,62 @@
 <template>
    <div class="container">
       <!-- Eventually change to vue shorthand -->
-     <h1 v-bind:class="{big: isBig }" v-on:click="isBig = !isBig">{{ msg }}</h1>
+     <h1>{{ upperCaseTitle($options.name) }}</h1>
+     <div v-if="loading">
+        Site not ready yet.
+     </div>
+     <Post v-else v-for="post in posts" :post="post" :key="post.id"/>
    </div>
 </template>
 
 <script>
+import Post from './Post.vue'
+
 export default {
   name: 'Feed',
+  components: { Post },
   data() {
      return {
        posts: [
          {
-            id: 1, title:"Google takes over world", body: "Big whoop."},
+            id: 1, title:"Google takes over world", body: "Big whoop."
+         },
          {
             id: 2, title:"Bagels, Still great!", body: "Scientists say they are 'yummy'"
+         },
+         {
+            id: 3, title:"Google takes over world", body: "Big whoop."
+         },
+         {
+            id: 4, title:"Bagels, Still great!", body: "Scientists say they are 'yummy'"
          }
        ],
-       msg: "Welcome to the Vue-Demo!",
-       isBig: false
+       loading : true
      }
   },
-  methods: {  }
+  methods: {
+     upperCaseTitle(post) {
+        return post.toUpperCase()
+     }
+  },
+  computed: { },
+  created() {
+      // eslint-disable-next-line
+      fetch('https://jsonplaceholder.typicode.com/posts')
+         .then(response => response.json())
+         .then(json => {
+            this.posts = json.map(item => item)
+         })
+         .then(() => {
+            return new Promise(res => {
+               return setTimeout(() => res(), 2000)
+            })
+         })
+         .then(() => {
+            this.loading = !this.loading
+         })
+
+  }
 }
 </script>
 

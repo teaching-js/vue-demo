@@ -1,6 +1,6 @@
 # vue-demo
 
-This is a demo repository for using Vue.js
+This is a demo repository for using Vue.js. [LIVE HERE](https://teaching-vue.github.io/vue-demo/)
 
 ## Prereq Knowledge (Basic)
 * JS
