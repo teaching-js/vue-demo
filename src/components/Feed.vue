@@ -1,8 +1,11 @@
 <template>
    <div class="container">
       <!-- Eventually change to vue shorthand -->
-     <h1>{{ $options.name }}</h1>
-     <Post v-for="post in posts" :post="post" :key="post.id"/>
+     <h1>{{ upperCaseTitle($options.name) }}</h1>
+     <div v-if="loading">
+        Site not ready yet.
+     </div>
+     <Post v-else v-for="post in posts" :post="post" :key="post.id"/>
    </div>
 </template>
 
@@ -28,10 +31,32 @@ export default {
             id: 4, title:"Bagels, Still great!", body: "Scientists say they are 'yummy'"
          }
        ],
+       loading : true
      }
   },
-  methods: {  },
-  computed: { }
+  methods: {
+     upperCaseTitle(post) {
+        return post.toUpperCase()
+     }
+  },
+  computed: { },
+  created() {
+      // eslint-disable-next-line
+      fetch('https://jsonplaceholder.typicode.com/posts')
+         .then(response => response.json())
+         .then(json => {
+            this.posts = json.map(item => item)
+         })
+         .then(() => {
+            return new Promise(res => {
+               return setTimeout(() => res(), 2000)
+            })
+         })
+         .then(() => {
+            this.loading = !this.loading
+         })
+
+  }
 }
 </script>
 
