@@ -1,3 +1,5 @@
-import Feed from './Feed.vue'
+import Blog from './Blog.vue'
+import User from './User.vue'
+import NavBar from './NavBar.vue'
 
-export { Feed }
+export { Blog, User, NavBar }
