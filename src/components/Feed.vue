@@ -1,7 +1,13 @@
 <template>
    <div class="container">
       <!-- Eventually change to vue shorthand -->
-     <h1 v-bind:class="{big: isBig }" v-on:click="isBig = !isBig">{{ msg }}</h1>
+     <h1>{{ $options.name }}</h1>
+     <section>
+        <article v-for="post in posts" :key="post.id">
+           <h1>{{ post.id}} {{ post.title }}</h1>
+           <p>{{ post.body }}</p>
+        </article>
+     </section>
    </div>
 </template>
 
@@ -12,16 +18,22 @@ export default {
      return {
        posts: [
          {
-            id: 1, title:"Google takes over world", body: "Big whoop."},
+            id: 1, title:"Google takes over world", body: "Big whoop."
+         },
          {
             id: 2, title:"Bagels, Still great!", body: "Scientists say they are 'yummy'"
+         },
+         {
+            id: 3, title:"Google takes over world", body: "Big whoop."
+         },
+         {
+            id: 4, title:"Bagels, Still great!", body: "Scientists say they are 'yummy'"
          }
        ],
-       msg: "Welcome to the Vue-Demo!",
-       isBig: false
      }
   },
-  methods: {  }
+  methods: {  },
+  computed: { }
 }
 </script>
 
