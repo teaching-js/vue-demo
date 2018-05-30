@@ -2,7 +2,7 @@
    <section class="blog">
       <article>
          <div class="header-container">
-            <h2>{{ article.title  }}</h2>
+            <h2>{{ proper_title }}</h2>
             <h5><router-link tag="a" :to="{
                name: 'Profile',
                params: {id: article.author.id }}">{{ article.author.name }}</router-link> | {{ article.date || "Today" }}</h5>
@@ -21,6 +21,15 @@ export default {
          title: String,
          body: String,
          author: Object
+      }
+   },
+   computed: {
+      proper_title() {
+         return this.article.title.split(' ').map(word => {
+            let chars = word.split('')
+            chars[0] = chars[0].toUpperCase()
+            return chars.join('')
+         }).join(' ')
       }
    }
 }

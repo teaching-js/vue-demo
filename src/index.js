@@ -14,7 +14,7 @@ const router = new Router({
          name: 'Profile',
          component: Profile,
          props: (route) => ({
-            id: route.params.id,
+            id: Number(route.params.id),
          })
       },
       {

@@ -1,3 +1,5 @@
 import Blog from './Blog.vue'
 import User from './User.vue'
-export { Blog, User }
+import NavBar from './NavBar.vue'
+
+export { Blog, User, NavBar }

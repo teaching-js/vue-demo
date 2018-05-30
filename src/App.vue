@@ -1,16 +1,6 @@
 <template>
   <div id="app">
-      <nav class="navbar">
-          <div class="nav-elem brand" >
-            <router-link tag="a" :to="{ name: 'Feed'}">Feedium</router-link>
-          </div>
-          <div class="nav-elem" >
-            <router-link tag="a" :to="{ name: 'Authors'}">Authors</router-link>
-          </div>
-          <div class="nav-elem" >
-            <router-link tag="a" :to="{ name: 'About'}">About</router-link>
-          </div>
-      </nav>
+     <NavBar/>
      <main>
         <router-view/>
      </main>
@@ -18,8 +8,13 @@
 </template>
 
 <script>
+import { NavBar } from '@/components'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+     NavBar
+  }
 }
 </script>
 
@@ -31,7 +26,6 @@ export default {
    -moz-osx-font-smoothing: grayscale;
    color: #121212;
    font-family: 'Helvetica Neue', 'Open Sans', Arial, sans-serif;
-   font-size: normal;
    margin: 0;
    padding: 0;
 }
@@ -54,31 +48,6 @@ main {
    flex-direction: column;
    justify-content: center;
    align-items: center;
-}
-
-.navbar {
-    font-size: 1.25em;
-    padding: 1em;
-    width: 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    background-color: #325D88;
-}
-
-.nav-elem {
-  margin-right: 1.5em;
-  line-height: 30px;
-}
-
-.nav-elem a {
-  color: #EBEBEB;
-}
-
-.brand a {
-  font-size: 1.1em;
-  font-weight: 500;
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }
 
 .banner {

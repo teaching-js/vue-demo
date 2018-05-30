@@ -1,11 +1,11 @@
 <template>
    <div class="container">
-     <div class="title">
+     <div class="title" v-if="loaded">
        <h1>{{user.name}}</h1>
        <hr>
-       <h3> {{user.email}} | {{user.address.city}}</h3>
+       <h3>{{user.email}} | {{user.address.city}}</h3>
      </div>
-     <Blog v-for="article in articles"
+     <Blog v-if="loaded" v-for="article in articles"
         :article="article"
         :key="article.id"
      />
@@ -18,12 +18,13 @@ import { Blog } from '@/components'
 export default {
   name: 'Profile',
   props: {
-    id: String
+    id: Number
   },
   data() {
      return {
         user: {},
-        articles: []
+        articles: [],
+        loaded: false
      }
   },
   components: {
@@ -47,8 +48,10 @@ export default {
           return item
        }).sort((a, b) => a.title.length - b.title.length)
     })
-  },
-  mounted() {}
+    .then(() => {
+      this.loaded = !this.loaded
+    })
+  }
 }
 </script>
 
@@ -59,7 +62,7 @@ export default {
 }
 .title {
   text-align: center;
-  margin-bottom: 5em;
+  margin: 0px 20px 20px 20px;
 }
 h1 {
   margin-top: 1em;
